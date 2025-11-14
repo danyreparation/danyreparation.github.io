@@ -21,21 +21,34 @@
       color: var(--dark);
     }
 
+    /* ---------- HEADER ---------- */
     header {
       background: var(--primary);
-      padding: 25px;
+      padding: 10px 0 15px 0;
       text-align: center;
       color: var(--white);
     }
 
     header img {
-      width: 140px;
-      margin-bottom: 10px;
+      width: 90px; /* Smaller logo */
+      margin-top: 8px;
     }
 
+    header h1 {
+      margin: 8px 0 0 0;
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    header p {
+      margin: 5px 0 10px 0;
+      font-size: 16px;
+    }
+
+    /* ---------- LANGUAGE BAR ---------- */
     nav {
       background: var(--dark);
-      padding: 10px 0;
+      padding: 8px 0;
       text-align: center;
     }
 
@@ -43,7 +56,7 @@
       background: none;
       border: none;
       color: var(--white);
-      font-size: 16px;
+      font-size: 15px;
       margin: 0 15px;
       cursor: pointer;
       font-weight: bold;
@@ -53,53 +66,78 @@
       text-decoration: underline;
     }
 
+    /* ---------- MAIN CONTAINERS ---------- */
     .container {
       max-width: 900px;
       margin: 30px auto;
       background: var(--white);
       padding: 25px;
       border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
     }
 
     h2 {
       color: var(--primary);
+      margin-top: 0;
     }
 
+    /* ---------- FORM ---------- */
     form label {
       font-weight: bold;
       margin-top: 12px;
       display: block;
     }
 
-    form input, form textarea {
+    form input,
+    form textarea {
       width: 100%;
       padding: 10px;
-      margin-top: 5px;
+      margin-top: 6px;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 6px;
       font-size: 15px;
     }
 
     form button {
-      margin-top: 15px;
-      padding: 12px 20px;
+      margin-top: 18px;
+      padding: 12px 22px;
       background: var(--accent);
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       font-size: 16px;
       cursor: pointer;
       font-weight: bold;
     }
 
     form button:hover {
-      background: #e6b534;
+      background: #e1b12d;
     }
 
+    /* ---------- FOOTER ---------- */
     footer {
+      margin: 25px 0;
       text-align: center;
       color: #666;
-      margin: 20px 0;
+    }
+
+    /* ---------- FACEBOOK BUTTON ---------- */
+    .social-buttons {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .fb-btn {
+      background: #1877f2;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+    }
+
+    .fb-btn:hover {
+      background: #0f5fcc;
     }
   </style>
 </head>
@@ -118,33 +156,38 @@
     <button onclick="setLang('en')">English</button>
   </nav>
 
-  <!-- ABOUT SECTION -->
+  <!-- ABOUT -->
   <section class="container">
     <h2 id="about-title">À propos</h2>
     <p id="about-text-1">
       J’offre des services de réparation informatique pour portables, ordinateurs de bureau,
-      et PC de gaming. Diagnostics, nettoyage, changement de pâte thermique, remplacement de
-      pads thermiques, réparation d'écran, clavier, logiciels et plus.
+      et PC de gaming. Diagnostics, nettoyage, pâte thermique, pads thermiques, écrans, claviers et plus.
     </p>
     <p id="about-text-2">
       Je fournis des réparations honnêtes, rapides et adaptées à vos besoins. Remplissez
-      le formulaire ci-dessous pour recevoir une évaluation et une estimation.
+      le formulaire ci-dessous pour recevoir une estimation.
     </p>
+
+    <!-- FACEBOOK BUTTON -->
+    <div class="social-buttons">
+      <a href="https://www.facebook.com/profile.php?id=61580510307748" 
+         class="fb-btn" target="_blank">
+        Ma page Facebook
+      </a>
+    </div>
   </section>
 
-  <!-- CONTACT FORM -->
+  <!-- REPAIR FORM -->
   <section class="container">
     <h2 id="form-title">Demande de réparation</h2>
 
-    <form action="https://formspree.io/f/xgvrapnl" method="POST">
+    <form action="https://formspree.io/f/xgvrapnl" method="POST" onsubmit="return checkContact()">
+
+      <label id="label-emailphone">Courriel ou téléphone (au moins un requis)</label>
+      <input type="text" id="contactField" name="contact" placeholder="email@example.com ou 514-123-4567" required>
+
       <label id="label-name">Nom</label>
       <input type="text" name="name" required>
-
-      <label id="label-email">Courriel</label>
-      <input type="email" name="email" required>
-
-      <label id="label-phone">Téléphone (optionnel)</label>
-      <input type="text" name="phone">
 
       <label id="label-device">Type d’appareil</label>
       <input type="text" name="device" placeholder="Portable, PC, GPU, etc." required>
@@ -164,6 +207,7 @@
   <script>
     function setLang(lang) {
       if (lang === 'fr') {
+        document.body.lang = "fr";
         document.getElementById("title").innerText = "Dany Réparation – Service Informatique";
         document.getElementById("subtitle").innerText = "Réparation fiable et abordable pour ordinateurs, portables & GPUs";
         document.getElementById("about-title").innerText = "À propos";
@@ -171,35 +215,42 @@
           "J’offre des services de réparation informatique pour portables, ordinateurs de bureau, et PC de gaming. Diagnostics, nettoyage, pâte thermique, pads thermiques, écrans, claviers et plus.";
         document.getElementById("about-text-2").innerText =
           "Je fournis des réparations honnêtes, rapides et adaptées à vos besoins. Remplissez le formulaire ci-dessous pour recevoir une estimation.";
-        document.getElementById("form-title").innerText = "Demande de réparation";
 
+        document.getElementById("form-title").innerText = "Demande de réparation";
+        document.getElementById("label-emailphone").innerText = "Courriel ou téléphone (au moins un requis)";
         document.getElementById("label-name").innerText = "Nom";
-        document.getElementById("label-email").innerText = "Courriel";
-        document.getElementById("label-phone").innerText = "Téléphone (optionnel)";
         document.getElementById("label-device").innerText = "Type d’appareil";
         document.getElementById("label-issue").innerText = "Décrivez le problème";
-
         document.getElementById("button-submit").innerText = "Envoyer la demande";
       }
 
       if (lang === 'en') {
+        document.body.lang = "en";
         document.getElementById("title").innerText = "Dany Repair – Computer Services";
-        document.getElementById("subtitle").innerText = "Reliable and affordable repair for PCs, laptops & GPUs";
+        document.getElementById("subtitle").innerText = "Reliable and affordable repair for laptops, desktops & GPUs";
         document.getElementById("about-title").innerText = "About";
         document.getElementById("about-text-1").innerText =
-          "I offer repair services for laptops, desktops, and gaming PCs. Diagnostics, cleaning, repasting, thermal pads, screens, keyboards, software issues, and more.";
+          "I offer repair services for laptops, desktops and gaming PCs: diagnostics, cleaning, thermal paste, thermal pads, screens, keyboards and more.";
         document.getElementById("about-text-2").innerText =
-          "I focus on honest, fast repair and clear communication. Fill out the form below to get an estimate.";
-        document.getElementById("form-title").innerText = "Repair Request";
+          "I provide honest and fast repairs. Fill out the form below to receive an estimate.";
 
+        document.getElementById("form-title").innerText = "Repair Request";
+        document.getElementById("label-emailphone").innerText = "Email or phone (at least one required)";
         document.getElementById("label-name").innerText = "Name";
-        document.getElementById("label-email").innerText = "Email";
-        document.getElementById("label-phone").innerText = "Phone (optional)";
         document.getElementById("label-device").innerText = "Device Type";
         document.getElementById("label-issue").innerText = "Describe the issue";
-
         document.getElementById("button-submit").innerText = "Submit Request";
       }
+    }
+
+    /* Require at least email OR phone */
+    function checkContact() {
+      const contactValue = document.getElementById("contactField").value.trim();
+      if (contactValue === "") {
+        alert("Veuillez fournir un courriel OU un numéro de téléphone.");
+        return false;
+      }
+      return true;
     }
   </script>
 
