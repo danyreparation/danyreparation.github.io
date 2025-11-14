@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dany Computer Repair</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f5f5;
+      color: #222;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    nav {
+      background: #333;
+      text-align: center;
+      padding: 10px 0;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    }
+    h2 {
+      margin-top: 0;
+    }
+    form label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font: inherit;
+    }
+    button {
+      margin-top: 15px;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 4px;
+      background: #222;
+      color: #fff;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      opacity: 0.9;
+    }
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 15px;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Dany Computer Repair</h1>
+    <p>Honest, affordable repair for laptops, desktops & GPUs</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#contact">Request a Repair</a>
+  </nav>
+
+  <section class="container" id="about">
+    <h2>About</h2>
+    <p>
+      I offer local computer repair services for laptops, desktops, and gaming PCs.
+      I handle hardware diagnostics, GPU cleaning and repasting, thermal pad replacement,
+      screen and keyboard issues, software problems, and more.
+    </p>
+    <p>
+      I focus on clear communication and only recommend repairs that make sense for you.
+      Use the form below to describe your issue and I’ll get back to you with options and a quote.
+    </p>
+  </section>
+
+  <section class="container" id="contact">
+    <h2>Request a Repair</h2>
+    <!-- FormSubmit sends this to your email -->
+    <form action="https://formsubmit.co/danyreparation@gmail.com" method="POST">
+      <!-- Disable captcha on FormSubmit -->
+      <input type="hidden" name="_captcha" value="false">
+      <!-- Optional: change this thank-you URL later if you create a page -->
+      <!-- <input type="hidden" name="_next" value="https://danyreparation.github.io/thankyou.html"> -->
+
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="Name" placeholder="Enter your name" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="Email" placeholder="Enter your email" required>
+
+      <label for="phone">Phone (optional)</label>
+      <input type="tel" id="phone" name="Phone" placeholder="Enter your phone number">
+
+      <label for="device">Device Type</label>
+      <input type="text" id="device" name="Device" placeholder="Laptop, desktop, GPU, etc." required>
+
+      <label for="issue">Describe the Issue</label>
+      <textarea id="issue" name="Issue" rows="5"
+        placeholder="Tell me what’s happening, any error messages, noises, liquid damage, etc."
+        required></textarea>
+
+      <button type="submit">Send Request</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Contact: danyreparation@gmail.com</p>
+  </footer>
+</body>
+</html>
