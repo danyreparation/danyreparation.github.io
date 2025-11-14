@@ -122,4 +122,86 @@
   <section class="container">
     <h2 id="about-title">À propos</h2>
     <p id="about-text-1">
-      J’offre des services de réparation
+      J’offre des services de réparation informatique pour portables, ordinateurs de bureau,
+      et PC de gaming. Diagnostics, nettoyage, changement de pâte thermique, remplacement de
+      pads thermiques, réparation d'écran, clavier, logiciels et plus.
+    </p>
+    <p id="about-text-2">
+      Je fournis des réparations honnêtes, rapides et adaptées à vos besoins. Remplissez
+      le formulaire ci-dessous pour recevoir une évaluation et une estimation.
+    </p>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="container">
+    <h2 id="form-title">Demande de réparation</h2>
+
+    <form action="https://formspree.io/f/xgvrapnl" method="POST">
+      <label id="label-name">Nom</label>
+      <input type="text" name="name" required>
+
+      <label id="label-email">Courriel</label>
+      <input type="email" name="email" required>
+
+      <label id="label-phone">Téléphone (optionnel)</label>
+      <input type="text" name="phone">
+
+      <label id="label-device">Type d’appareil</label>
+      <input type="text" name="device" placeholder="Portable, PC, GPU, etc." required>
+
+      <label id="label-issue">Décrivez le problème</label>
+      <textarea name="issue" rows="5" required></textarea>
+
+      <button type="submit" id="button-submit">Envoyer la demande</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>Contact : danyreparation@gmail.com</p>
+  </footer>
+
+  <!-- LANGUAGE SCRIPT -->
+  <script>
+    function setLang(lang) {
+      if (lang === 'fr') {
+        document.getElementById("title").innerText = "Dany Réparation – Service Informatique";
+        document.getElementById("subtitle").innerText = "Réparation fiable et abordable pour ordinateurs, portables & GPUs";
+        document.getElementById("about-title").innerText = "À propos";
+        document.getElementById("about-text-1").innerText =
+          "J’offre des services de réparation informatique pour portables, ordinateurs de bureau, et PC de gaming. Diagnostics, nettoyage, pâte thermique, pads thermiques, écrans, claviers et plus.";
+        document.getElementById("about-text-2").innerText =
+          "Je fournis des réparations honnêtes, rapides et adaptées à vos besoins. Remplissez le formulaire ci-dessous pour recevoir une estimation.";
+        document.getElementById("form-title").innerText = "Demande de réparation";
+
+        document.getElementById("label-name").innerText = "Nom";
+        document.getElementById("label-email").innerText = "Courriel";
+        document.getElementById("label-phone").innerText = "Téléphone (optionnel)";
+        document.getElementById("label-device").innerText = "Type d’appareil";
+        document.getElementById("label-issue").innerText = "Décrivez le problème";
+
+        document.getElementById("button-submit").innerText = "Envoyer la demande";
+      }
+
+      if (lang === 'en') {
+        document.getElementById("title").innerText = "Dany Repair – Computer Services";
+        document.getElementById("subtitle").innerText = "Reliable and affordable repair for PCs, laptops & GPUs";
+        document.getElementById("about-title").innerText = "About";
+        document.getElementById("about-text-1").innerText =
+          "I offer repair services for laptops, desktops, and gaming PCs. Diagnostics, cleaning, repasting, thermal pads, screens, keyboards, software issues, and more.";
+        document.getElementById("about-text-2").innerText =
+          "I focus on honest, fast repair and clear communication. Fill out the form below to get an estimate.";
+        document.getElementById("form-title").innerText = "Repair Request";
+
+        document.getElementById("label-name").innerText = "Name";
+        document.getElementById("label-email").innerText = "Email";
+        document.getElementById("label-phone").innerText = "Phone (optional)";
+        document.getElementById("label-device").innerText = "Device Type";
+        document.getElementById("label-issue").innerText = "Describe the issue";
+
+        document.getElementById("button-submit").innerText = "Submit Request";
+      }
+    }
+  </script>
+
+</body>
+</html>
