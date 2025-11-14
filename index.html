@@ -7,8 +7,8 @@
 
   <style>
     :root {
-      --primary: #1e73be;   /* Logo blue */
-      --accent: #f4c542;    /* Logo yellow */
+      --primary: #1e73be;
+      --accent: #f4c542;
       --dark: #1a1a1a;
       --light: #f5f5f5;
       --white: #ffffff;
@@ -21,28 +21,36 @@
       color: var(--dark);
     }
 
-    /* ---------- HEADER ---------- */
+    /* ---------- HEADER (logo left, text right) ---------- */
     header {
       background: var(--primary);
-      padding: 10px 0 15px 0;
-      text-align: center;
       color: var(--white);
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
     }
 
     header img {
-      width: 90px; /* Smaller logo */
-      margin-top: 8px;
+      width: 80px;
+      height: auto;
+      flex-shrink: 0;
     }
 
-    header h1 {
-      margin: 8px 0 0 0;
-      font-size: 26px;
+    .header-text {
+      text-align: left;
+    }
+
+    .header-text h1 {
+      margin: 0;
+      font-size: 24px;
       font-weight: bold;
     }
 
-    header p {
-      margin: 5px 0 10px 0;
-      font-size: 16px;
+    .header-text p {
+      margin: 3px 0 0 0;
+      font-size: 15px;
     }
 
     /* ---------- LANGUAGE BAR ---------- */
@@ -115,17 +123,12 @@
 
     /* ---------- FOOTER ---------- */
     footer {
-      margin: 25px 0;
+      margin: 30px 0;
       text-align: center;
       color: #666;
     }
 
-    /* ---------- FACEBOOK BUTTON ---------- */
-    .social-buttons {
-      text-align: center;
-      margin-top: 20px;
-    }
-
+    /* FACEBOOK BUTTON (FOOTER) */
     .fb-btn {
       background: #1877f2;
       color: white;
@@ -134,6 +137,7 @@
       text-decoration: none;
       font-weight: bold;
       display: inline-block;
+      margin-bottom: 12px;
     }
 
     .fb-btn:hover {
@@ -146,8 +150,10 @@
   <!-- HEADER -->
   <header>
     <img src="logo.png" alt="Dany Réparation Logo">
-    <h1 id="title">Dany Réparation – Service Informatique</h1>
-    <p id="subtitle">Réparation fiable et abordable pour ordinateurs, portables & GPUs</p>
+    <div class="header-text">
+      <h1 id="title">Dany Réparation – Service Informatique</h1>
+      <p id="subtitle">Réparation fiable et abordable pour ordinateurs et téléphones</p>
+    </div>
   </header>
 
   <!-- LANGUAGE SWITCH -->
@@ -160,21 +166,14 @@
   <section class="container">
     <h2 id="about-title">À propos</h2>
     <p id="about-text-1">
-      J’offre des services de réparation informatique pour portables, ordinateurs de bureau,
-      et PC de gaming. Diagnostics, nettoyage, pâte thermique, pads thermiques, écrans, claviers et plus.
+      J’offre des services de réparation pour ordinateurs et téléphones :
+      diagnostics, remplacement de batterie, réparation d’écran, optimisation,
+      mises à niveau, dépannage logiciel et plus encore.
     </p>
     <p id="about-text-2">
-      Je fournis des réparations honnêtes, rapides et adaptées à vos besoins. Remplissez
-      le formulaire ci-dessous pour recevoir une estimation.
+      Mon objectif est d’offrir un service rapide, honnête et abordable pour tous vos appareils.
+      Décrivez votre problème ci-dessous pour obtenir une estimation.
     </p>
-
-    <!-- FACEBOOK BUTTON -->
-    <div class="social-buttons">
-      <a href="https://www.facebook.com/profile.php?id=61580510307748" 
-         class="fb-btn" target="_blank">
-        Ma page Facebook
-      </a>
-    </div>
   </section>
 
   <!-- REPAIR FORM -->
@@ -190,7 +189,7 @@
       <input type="text" name="name" required>
 
       <label id="label-device">Type d’appareil</label>
-      <input type="text" name="device" placeholder="Portable, PC, GPU, etc." required>
+      <input type="text" name="device" placeholder="PC, portable, iPhone, etc." required>
 
       <label id="label-issue">Décrivez le problème</label>
       <textarea name="issue" rows="5" required></textarea>
@@ -199,7 +198,13 @@
     </form>
   </section>
 
+  <!-- FOOTER -->
   <footer>
+    <a href="https://www.facebook.com/profile.php?id=61580510307748"
+       class="fb-btn" target="_blank" id="facebook-button">
+       Ma page Facebook
+    </a>
+
     <p>Contact : danyreparation@gmail.com</p>
   </footer>
 
@@ -208,13 +213,15 @@
     function setLang(lang) {
       if (lang === 'fr') {
         document.body.lang = "fr";
+
         document.getElementById("title").innerText = "Dany Réparation – Service Informatique";
-        document.getElementById("subtitle").innerText = "Réparation fiable et abordable pour ordinateurs, portables & GPUs";
+        document.getElementById("subtitle").innerText = "Réparation fiable et abordable pour ordinateurs et téléphones";
+
         document.getElementById("about-title").innerText = "À propos";
         document.getElementById("about-text-1").innerText =
-          "J’offre des services de réparation informatique pour portables, ordinateurs de bureau, et PC de gaming. Diagnostics, nettoyage, pâte thermique, pads thermiques, écrans, claviers et plus.";
+          "J’offre des services de réparation pour ordinateurs et téléphones : diagnostics, remplacement de batterie, réparation d’écran, optimisation, mises à niveau, dépannage logiciel et plus encore.";
         document.getElementById("about-text-2").innerText =
-          "Je fournis des réparations honnêtes, rapides et adaptées à vos besoins. Remplissez le formulaire ci-dessous pour recevoir une estimation.";
+          "Mon objectif est d’offrir un service rapide, honnête et abordable pour tous vos appareils. Décrivez votre problème ci-dessous pour obtenir une estimation.";
 
         document.getElementById("form-title").innerText = "Demande de réparation";
         document.getElementById("label-emailphone").innerText = "Courriel ou téléphone (au moins un requis)";
@@ -222,17 +229,21 @@
         document.getElementById("label-device").innerText = "Type d’appareil";
         document.getElementById("label-issue").innerText = "Décrivez le problème";
         document.getElementById("button-submit").innerText = "Envoyer la demande";
+
+        document.getElementById("facebook-button").innerText = "Ma page Facebook";
       }
 
       if (lang === 'en') {
         document.body.lang = "en";
-        document.getElementById("title").innerText = "Dany Repair – Computer Services";
-        document.getElementById("subtitle").innerText = "Reliable and affordable repair for laptops, desktops & GPUs";
+
+        document.getElementById("title").innerText = "Dany Repair – Computer & Phone Services";
+        document.getElementById("subtitle").innerText = "Reliable and affordable repair for computers and phones";
+
         document.getElementById("about-title").innerText = "About";
         document.getElementById("about-text-1").innerText =
-          "I offer repair services for laptops, desktops and gaming PCs: diagnostics, cleaning, thermal paste, thermal pads, screens, keyboards and more.";
+          "I provide repair services for computers and smartphones: diagnostics, battery replacements, screen repairs, upgrades, optimization, software fixes, and more.";
         document.getElementById("about-text-2").innerText =
-          "I provide honest and fast repairs. Fill out the form below to receive an estimate.";
+          "My goal is to offer fast, honest, and affordable service for all your devices. Describe your issue below to get an estimate.";
 
         document.getElementById("form-title").innerText = "Repair Request";
         document.getElementById("label-emailphone").innerText = "Email or phone (at least one required)";
@@ -240,6 +251,8 @@
         document.getElementById("label-device").innerText = "Device Type";
         document.getElementById("label-issue").innerText = "Describe the issue";
         document.getElementById("button-submit").innerText = "Submit Request";
+
+        document.getElementById("facebook-button").innerText = "My Facebook Page";
       }
     }
 
