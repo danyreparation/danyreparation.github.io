@@ -128,7 +128,7 @@
       color: #666;
     }
 
-    /* FACEBOOK BUTTON (FOOTER) */
+    /* FACEBOOK BUTTON */
     .fb-btn {
       background: #1877f2;
       color: white;
@@ -143,6 +143,7 @@
     .fb-btn:hover {
       background: #0f5fcc;
     }
+
   </style>
 </head>
 
@@ -167,8 +168,8 @@
     <h2 id="about-title">À propos</h2>
     <p id="about-text-1">
       J’offre des services de réparation pour ordinateurs et téléphones :
-      diagnostics, remplacement de batterie, réparation d’écran, optimisation,
-      mises à niveau, dépannage logiciel et plus encore.
+      diagnostics, remplacement de batterie, réparation d’écran, mises à niveau, optimisation,
+      dépannage logiciel et plus encore.
     </p>
     <p id="about-text-2">
       Mon objectif est d’offrir un service rapide, honnête et abordable pour tous vos appareils.
@@ -176,14 +177,19 @@
     </p>
   </section>
 
-  <!-- REPAIR FORM -->
+  <!-- FORM -->
   <section class="container">
+    <p id="response-time" style="font-weight:bold; color:#1e73be; margin-bottom:15px;">
+      Réponse garantie dans les 24 heures.
+    </p>
+
     <h2 id="form-title">Demande de réparation</h2>
 
     <form action="https://formspree.io/f/xgvrapnl" method="POST" onsubmit="return checkContact()">
 
       <label id="label-emailphone">Courriel ou téléphone (au moins un requis)</label>
-      <input type="text" id="contactField" name="contact" placeholder="email@example.com ou 514-123-4567" required>
+      <input type="text" id="contactField" name="contact"
+             placeholder="email@example.com ou 514-123-4567" required>
 
       <label id="label-name">Nom</label>
       <input type="text" name="name" required>
@@ -204,7 +210,6 @@
        class="fb-btn" target="_blank" id="facebook-button">
        Ma page Facebook
     </a>
-
     <p>Contact : danyreparation@gmail.com</p>
   </footer>
 
@@ -219,9 +224,12 @@
 
         document.getElementById("about-title").innerText = "À propos";
         document.getElementById("about-text-1").innerText =
-          "J’offre des services de réparation pour ordinateurs et téléphones : diagnostics, remplacement de batterie, réparation d’écran, optimisation, mises à niveau, dépannage logiciel et plus encore.";
+          "J’offre des services de réparation pour ordinateurs et téléphones : diagnostics, remplacement de batterie, réparation d’écran, mises à niveau, optimisation, dépannage logiciel et plus encore.";
         document.getElementById("about-text-2").innerText =
           "Mon objectif est d’offrir un service rapide, honnête et abordable pour tous vos appareils. Décrivez votre problème ci-dessous pour obtenir une estimation.";
+
+        document.getElementById("response-time").innerText =
+          "Réponse garantie dans les 24 heures.";
 
         document.getElementById("form-title").innerText = "Demande de réparation";
         document.getElementById("label-emailphone").innerText = "Courriel ou téléphone (au moins un requis)";
@@ -244,6 +252,9 @@
           "I provide repair services for computers and smartphones: diagnostics, battery replacements, screen repairs, upgrades, optimization, software fixes, and more.";
         document.getElementById("about-text-2").innerText =
           "My goal is to offer fast, honest, and affordable service for all your devices. Describe your issue below to get an estimate.";
+
+        document.getElementById("response-time").innerText =
+          "Guaranteed response within 24 hours.";
 
         document.getElementById("form-title").innerText = "Repair Request";
         document.getElementById("label-emailphone").innerText = "Email or phone (at least one required)";
